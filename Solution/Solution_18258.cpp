@@ -1,3 +1,4 @@
+//배열 풀이 O(N)/O(1)
 #include <iostream>
 #include <string>
 
@@ -89,6 +90,74 @@ int main() {
 		else { //cmd=="back"
 			que.back();
 
+		}
+	}
+
+	return 0;
+
+
+}
+//STL 사용 풀이
+//O(N)/O(N)
+#include <iostream>
+#include <string>
+#include <queue>
+
+using namespace std;
+
+int main() {
+
+	std::ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int N;
+	cin >> N;
+	string cmd;
+
+	queue<int> que;
+
+	for (int i = 0; i < N; i++) {
+		cin >> cmd;
+		if (cmd == "push") {
+			int x;
+			cin >> x;
+			que.push(x);
+		}
+		else if (cmd == "pop") {
+			if (que.empty())cout << "-1" << '\n';
+			else {
+				cout << que.front() << '\n';
+				que.pop();
+			}
+		}
+		else if (cmd == "size") {
+			cout<<que.size()<<'\n';
+		}
+		else if (cmd == "empty") {
+			if (que.empty()) {
+				cout << "1" << '\n';
+			}
+			else {
+				cout << "0" << "\n";
+			}
+		}
+		else if (cmd == "front") {
+			if (que.empty()) {
+				cout << "-1" << '\n';
+			}
+			else {
+				cout << que.front() << "\n";
+			}
+			
+		}
+		else { //cmd=="back"
+			if (que.empty()) {
+				cout << "-1" << '\n';
+			}
+			else {
+				cout << que.back() << "\n";
+			}
 		}
 	}
 
