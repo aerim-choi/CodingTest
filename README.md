@@ -3,5 +3,5 @@
 🍀자세한 풀이과정은 
 https://blog.naver.com/sswuaerim <br>
 Baekjoon 카테고리에 있습니다. <br>
-🍀 2022 여름방학 자료구조 스터디 : <br>
+🍀 2022 하반기 자료구조 스터디 : <br>
 https://www.notion.so/2022-Summer-01e10bae358547088eb8c65d87e663ee
