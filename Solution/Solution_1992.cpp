@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+//시간복잡도 
+//공간복잡도 : O(1)
 int quadTree[64][64] = { 0 };
 
 void recur(int n, int y, int x) {
