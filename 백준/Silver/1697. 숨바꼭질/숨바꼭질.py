@@ -2,7 +2,6 @@ from collections import deque
 
 def bfs(start_node, end_node):
     MAX = 100000
-    #응용 포인트1:{노드 : [경로]} 
     queue = deque([start_node])
     array = [0] * (MAX + 1) 
 
@@ -20,9 +19,7 @@ def bfs(start_node, end_node):
     return -1
 
 def main():
-    subin, sister = input().split(' ')
-    subin = int(subin)
-    sister = int(sister)
+    subin, sister = map(int,input().split())
     
     print(bfs(subin,sister))
 
