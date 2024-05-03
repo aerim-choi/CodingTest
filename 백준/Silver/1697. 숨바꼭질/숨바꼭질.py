@@ -1,19 +1,31 @@
-import sys
 from collections import deque
 
-def bfs(v):
-    q = deque([v])
-    while q:
-        v = q.popleft()
-        if v == k:
-            return array[v]
-        for next_v in (v-1, v+1, 2*v):
-            if 0 <= next_v < MAX and not array[next_v]:
-                array[next_v] = array[v] + 1
-                q.append(next_v)
+def bfs(start_node, end_node):
+    MAX = 100000
+    #응용 포인트1:{노드 : [경로]} 
+    queue = deque([start_node])
+    array = [0] * (MAX + 1) 
 
+    while queue:
+        curr_node = queue.popleft()
 
-MAX = 100001
-n, k = map(int, sys.stdin.readline().split())
-array = [0] * MAX
-print(bfs(n))
+        if curr_node == end_node:
+            return array[curr_node]
+            
+        for next_node in [curr_node-1, curr_node+1, curr_node*2]:
+            if 0<=next_node<=MAX and not array[next_node]:
+                array[next_node] = array[curr_node] + 1
+                queue.append(next_node)
+
+    return -1
+
+def main():
+    subin, sister = input().split(' ')
+    subin = int(subin)
+    sister = int(sister)
+    
+    print(bfs(subin,sister))
+
+main()
+   
+        
