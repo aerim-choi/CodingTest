@@ -1,18 +1,20 @@
-from itertools import zip_longest as zip
-
-def tolist(l):
-    n=[]
-    for i,d in enumerate(l):
-        for _ in range(d):
-            n.append(i+1)
-    return n
-
 def solution(cap, n, deliveries, pickups):
-    d=tolist(deliveries)
-    p=tolist(pickups)
-    d.reverse()
-    p.reverse()
-    d=d[::cap]
-    p=p[::cap]
+    deliveries_stack = make_stack(deliveries)
+    pickups_stack= make_stack(pickups)
+    
+    print(deliveries_stack)
+    print(pickups_stack)
+    answer = -1
+    return answer
 
-    return 2*sum([max(x,y) for x,y in zip(d,p,fillvalue=0)])
+def make_stack(list):
+    stack=[]
+    idx = 1 
+    for i in list:
+        for j in range(0,i,1):
+            if not i:
+                stack.add(idx)
+            else : 
+                pass
+    return stack
+
