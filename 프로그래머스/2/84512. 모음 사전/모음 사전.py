@@ -2,7 +2,6 @@ from itertools import product
 
 def solution(word):
     word_set=set()
-    alphabet = ["","A","E","I","O","U"]
     
     for p in product(["","A","E","I","O","U"], repeat=5):
         word_set.add("".join(p))
