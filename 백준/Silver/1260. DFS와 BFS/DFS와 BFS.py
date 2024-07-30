@@ -1,3 +1,5 @@
+from collections import deque
+
 def main():
     # 정점의 개수 (1<=N<=1000)
     # 간선의 개수 (1<=M<=10000)
@@ -38,11 +40,11 @@ def DFS(arr,V):
                     stack.append(i)
     return visited_node
 def BFS(arr,V):
-    queue = [V]
+    queue = deque([V])
     visited_node = []
 
     while queue:
-        node = queue.pop(0)
+        node = queue.popleft()
         if node not in visited_node:
             visited_node.append(node) #방문 노드에 추가
 
@@ -52,14 +54,3 @@ def BFS(arr,V):
     return visited_node
 
 main()
-
-#   1 2 3 4
-# 1 0 1 1 1
-# 2 0 0 0 1
-# 3 0 0 0 1
-# 4 0 0 0 0
-#
-# 1->2->4->3
-#
-# 1->2->3->4
-
