@@ -14,43 +14,37 @@ def main():
         arr[x-1][y-1]=1
         arr[y-1][x-1]=1
 
-    dfs_result = DFS(arr,V-1)
-    bfs_result = BFS(arr,V-1)
-
-    for node in dfs_result:
-        print(node+1, end=" ")
-
+    DFS(arr,V-1)
     print()
-
-    for node in bfs_result:
-        print(node+1, end=" ")
+    BFS(arr,V-1)
 
 
 def DFS(arr,V):
     stack = [V]
-    visited_node =[]
+    visited_node = set()
 
     while stack:
         node = stack.pop()
         if node not in visited_node:
-            visited_node.append(node) #방문 노드에 추가
+            visited_node.add(node) #방문 노드에 추가
+            print(node+1, end=" ")
 
             for i in range(len(arr[node])-1,-1,-1):
                 if arr[node][i] == 1:
                     stack.append(i)
-    return visited_node
+
 def BFS(arr,V):
     queue = deque([V])
-    visited_node = []
+    visited_node = set() # set() , dict
 
     while queue:
         node = queue.popleft()
         if node not in visited_node:
-            visited_node.append(node) #방문 노드에 추가
+            visited_node.add(node) #방문 노드에 추가
+            print(node + 1, end=" ")
 
             for i in range(0,len(arr[node]),1):
                 if arr[node][i] == 1:
                     queue.append(i)
-    return visited_node
 
 main()
